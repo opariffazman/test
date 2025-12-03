@@ -9,6 +9,14 @@ jobs:
   demo:
     runs-on: ubuntu-latest
     steps:
-      - name: Tunjuk trigger
-        run: |
-          echo "Workflow ini triggered oleh: ${{ github.event_name }}"
+      - name: Checkout kod
+        uses: actions/checkout@v4
+
+      - name: Jalankan skrip automasi
+        run: chmod +x ci.sh && ./ci.sh
+
+      - name: Sediakan artifact
+        uses: actions/upload-pages-artifact@v3
+
+      - name: Lancar ke GitHub Pages
+        uses: actions/deploy-pages@v4
