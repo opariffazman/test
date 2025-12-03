@@ -16,7 +16,9 @@ jobs:
         run: chmod +x ci.sh && ./ci.sh
 
       - name: Sediakan artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: '.'
 
       - name: Lancar ke GitHub Pages
         uses: actions/deploy-pages@v4
